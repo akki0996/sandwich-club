@@ -37,6 +37,6 @@ public class JsonUtils {
 
     private static List<String> string_list_conversion(String list_string) {
         list_string = list_string.replace("[", "").replace("]", "");
-        return new ArrayList<>(Arrays.asList(list_string.split(" ")));
+        return new ArrayList<>(Arrays.asList(list_string.split(",")));
     }
 }

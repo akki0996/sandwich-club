@@ -12,6 +12,8 @@ import com.squareup.picasso.Picasso;
 import com.udacity.sandwichclub.model.Sandwich;
 import com.udacity.sandwichclub.utils.JsonUtils;
 
+import org.w3c.dom.Text;
+
 public class DetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_POSITION = "extra_position";
@@ -56,7 +58,28 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void populateUI(Sandwich sandwich) {
-        TextView textView = findViewById(R.id.sandwich_name);
-        textView.setText(sandwich.getMainName());
+        TextView main_name = findViewById(R.id.sandwich_name);
+        main_name.append(" " + sandwich.getMainName());
+
+        // Also known as
+        TextView also_known_as = findViewById(R.id.also_known_as);
+        also_known_as.append(" " + sandwich.getAlsoKnownAs().get(0));
+
+        for(int i = 1; i < sandwich.getAlsoKnownAs().size() - 1; i++)
+            also_known_as.append(", " + sandwich.getAlsoKnownAs().get(i));
+
+
+        // Ingredients
+        TextView ingredients = findViewById(R.id.ingredients);
+        ingredients.append(" " + sandwich.getIngredients().get(0));
+
+        for(int i = 1; i < sandwich.getIngredients().size() - 1; i++)
+            ingredients.append(", " + sandwich.getIngredients().get(i));
+
+        TextView origin = findViewById(R.id.origin);
+        origin.append(" " + sandwich.getPlaceOfOrigin());
+
+        TextView description = findViewById(R.id.description);
+        description.append(" " + sandwich.getDescription());
     }
 }
