@@ -65,7 +65,7 @@ public class DetailActivity extends AppCompatActivity {
         TextView also_known_as = findViewById(R.id.also_known_as);
         also_known_as.append(" " + sandwich.getAlsoKnownAs().get(0));
 
-        for(int i = 1; i < sandwich.getAlsoKnownAs().size() - 1; i++)
+        for(int i = 1; i < sandwich.getAlsoKnownAs().size(); i++)
             also_known_as.append(", " + sandwich.getAlsoKnownAs().get(i));
 
 
@@ -73,7 +73,7 @@ public class DetailActivity extends AppCompatActivity {
         TextView ingredients = findViewById(R.id.ingredients);
         ingredients.append(" " + sandwich.getIngredients().get(0));
 
-        for(int i = 1; i < sandwich.getIngredients().size() - 1; i++)
+        for(int i = 1; i < sandwich.getIngredients().size(); i++)
             ingredients.append(", " + sandwich.getIngredients().get(i));
 
         TextView origin = findViewById(R.id.origin);
